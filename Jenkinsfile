@@ -3,13 +3,23 @@ pipeline {
     stages {
         stage('step1') {
             steps {
-                echo 'step 1'
+               script {
+                    withCredentials(string(credentialsId: 'NEXT_PUBLIC_API_URL', variable: 'NEXT_PUBLIC_API_URL')) {
+                        echo 'step 1'
+                        echo "API URL BASE: ${NEXT_PUBLIC_API_URL}"
+                    }
+                }
             }
             
         }
         stage('step2') {
             steps {
-                echo 'step 2'
+               script {
+                    withCredentials(string(credentialsId: 'NEXT_PUBLIC_API_URL', variable: 'NEW_URL')) {
+                        echo 'step 2'
+                        echo "API URL BASE COM VARIAVEL: ${NEW_URL}"
+                    }
+                }
             }
         }
         stage('step3') {
