@@ -4,6 +4,7 @@ pipeline {
          stage('step1') {
             steps {
                 echo 'step 1'
+                echo "ENV_TEST: ${ENV_TEST}"
             }
         }
         stage('step2') {
