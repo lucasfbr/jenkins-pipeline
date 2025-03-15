@@ -4,7 +4,11 @@ pipeline {
          stage('step1') {
             steps {
                 echo 'step 1'
-                echo "ENV_TEST: ${ENV_TEST}"
+                echo "Iniciando verificação de variaveis de ambiente"
+                echo "variaveis do sistema e não do jenkins:"
+                echo "Host do projeto: ${env.SPRING_DATASOURCE_URL}"
+                echo "User: ${env.SPRING_DATASOURCE_USERNAME}"
+                echo "Password: ${env.SPRING_DATASOURCE_PASSWORD}"
             }
         }
         stage('step2') {
